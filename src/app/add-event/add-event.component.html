@@ -1,0 +1,11 @@
+<form class="add-event" [formGroup]="formGroup">
+  <div>
+    <label for="name">Name</label><br>
+    <input type="text" id="name" formControlName="name">
+  </div>
+  <div>
+    <label for="date" [class.invalid]="invalid">Date</label><br>
+    <input type="datetime-local" id="date" formControlName="date" (change)="validate()">
+  </div>
+  <div class="btn-container"><button (click)="addEvent()">Add event</button></div>
+</form>

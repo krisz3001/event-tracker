@@ -1,0 +1,6 @@
+<div class="events-list">
+  <app-event-item *ngFor="let item of eventsList" [name]="item.name" [date]="item.date"></app-event-item>
+</div>
+<select class="pager" [ngModel]="selectPage" (ngModelChange)="setPage($event)">
+  <option *ngFor="let item of pageCount" [value]="item">{{item}}</option>
+</select>
