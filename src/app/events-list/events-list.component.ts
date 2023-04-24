@@ -11,19 +11,20 @@ import { Subscription } from 'rxjs';
 export class EventsListComponent implements OnInit, OnDestroy{
   limit: number = 5;
   eventsList!: EventItem[];
-  selectPage = 1;
+  selectPage!:number;
   pageCount!: number[];
   private updater: Subscription;
   constructor(
     private readonly eventsService: EventsService
   ){
     this.updater = eventsService.getUpdate().subscribe(()=>{
-      this.ngOnInit();
+      this.setPage(this.selectPage);
     });
   }
 
   setPage(n:number):void{
     this.eventsService.getEvents(n, this.limit).subscribe((value) =>{
+      this.selectPage = n;
       this.eventsList = value;
       this.pageCount = Array(Math.round(Math.ceil(this.eventsService.getTotal() / this.limit))).fill(0).map((_,i)=> i+1);
     })
