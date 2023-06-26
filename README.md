@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 - Run `npm run db` to run json-server db.
 
-## deas to implement:
+## ideas to implement:
 
 - Details page for events
 - Edit, delete events
